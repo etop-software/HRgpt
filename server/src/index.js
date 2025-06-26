@@ -20,6 +20,10 @@ app.use(cors({
 app.options('*', cors()); 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/test', (req, res) => {
+    res.send('Hello, World!');
+});
+
 app.use('/api/gpt', gptRoutes);
 
 process.on('SIGINT', async () => {
