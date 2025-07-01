@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"  # Map container port 3000 to host port 3000
+    volumes:
+      - .:/app       # Mount the current directory to the container (useful for development)
+    env_file:
+      - .env         # Load environment variables from .env file
+    restart: always  # Ensure the app container restarts on failure
+
